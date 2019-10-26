@@ -34,6 +34,7 @@ var orm = {
         });
     },
     insertOne: function (table, cols, vals, cb) {
+        console.log("test")
         var dbQuery = "INSERT INTO " + table + " (" + cols.toString() + ") " + "VALUES (" + createQmarks(vals.length) + ") ";
 
         console.log(dbQuery);
@@ -57,6 +58,7 @@ var orm = {
         });
     },
     deleteOne: function(table, condition, cb) {
+      console.log("delete function triggered")
         var dbQuery = "DELETE FROM " + table + " WHERE " + condition;
         console.log(dbQuery);
     

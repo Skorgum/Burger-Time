@@ -1,11 +1,18 @@
-$(function() {
-    $(".create-form").on("submit", function(event) {
-        event.preventDefault();
+$(document).ready(function() { 
+    $('#button1').click(function(){ 
 
         var newBurger = {
-            burger_name: $("#newburger").val().trim,
+            burger_name: $('#ddid :selected').text(),
             eaten: 0
         };
+       console.log(newBurger)
+
+
+
+
+
+        event.preventDefault();
+        console.log(newBurger)
 
         $.ajax("/api/burgers", {
             type: "POST",
@@ -34,12 +41,12 @@ $(function() {
 
     $(".trashburger").on("click", function(event) {
         event.preventDefault();
-
-        var id = $(this).data("id");
+        var id = $(this).attr("data-id");
+        console.log(id)
 
         $.ajax({
             type: "DELETE",
-            url: "/api/burgers" + id
+            url: "/api/burgers/" + id
         }).then(location.reload());
     });
 });
